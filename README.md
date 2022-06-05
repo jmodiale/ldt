@@ -30,3 +30,15 @@ Some questions that might be helpful to consider:
 
 - What do other products in this space usually do?
 - How much time will your proposed features likely take you to implement? Do you have enough time? If not, is there a simpler way to give a user 80% of the experience?
+
+### Run Application
+- Clone the repo - https://github.com/jmodiale/ldt.git
+- cd dashboard
+- Run npm install
+- Run npm start
+
+### Approach
+
+
+
+

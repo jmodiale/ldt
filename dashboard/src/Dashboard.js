@@ -29,8 +29,8 @@ export default function Dashboard() {
     e.preventDefault();
   };
 
-  const handleClick = () => {
-
+  const handleEnter = () => {
+    
   };
 
   return (
@@ -45,7 +45,7 @@ export default function Dashboard() {
         />
       </form>
       <br />
-      <form>
+      <form onSubmit={handleEnter}>
         <label style={{ fontSize: "14px" }}>
           Enter organiser Id to view total ticket sales:{" "}
         </label>

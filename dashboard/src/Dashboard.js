@@ -9,12 +9,12 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { items } from "./data";
-import Ticket from "./Ticket";
 
 export default function Dashboard() {
+  const [data, setData] = useState(items);
   const [entry, setEntry] = useState("");
   const [organiser, setOrganiser] = useState("");
-  const [data, setData] = useState(items);
+  const [sales, setSales] = useState("")
 
   const filteredItems = data.filter((item) => {
     return (
@@ -32,9 +32,7 @@ export default function Dashboard() {
   };
 
   const handleEnter = () => {
-    let sum = 0;
-
-    const result = items.reduce((a, curr) => {
+    const result = data.reduce((a, curr) => {
       let found = a.find(
         (elem) => elem.organiserId === curr.organiserId && elem.status === "CONFIRMED"
       );
@@ -48,15 +46,12 @@ export default function Dashboard() {
 
     result.map((item) => {
       if ((item.organiserId === parseInt(organiser)) && (item.status === "CONFIRMED")) {
-        sum = item.ticketPrice.value;
-        console.log(sum);
+        setSales(item.ticketPrice.value)
       } else {
         return 0;
       }
-      return sum;
+      return sales;
     });
-
-    return <Ticket value={sum} />;
 
   };
 
@@ -67,8 +62,8 @@ export default function Dashboard() {
           type="search"
           value={entry}
           onChange={(e) => setEntry(e.target.value)}
-          placeholder="Search by name, event or race"
-          size="30"
+          placeholder="Search by organiser, name, event or race"
+          size="35"
         />
       </form>
       <br />
@@ -83,6 +78,9 @@ export default function Dashboard() {
           size="20"
         />
       </form>
+      <Typography sx={{ fontSize: "14px" }}>
+        Total ticket sales is: {`£ ${sales}`}
+      </Typography>
       <br />
       <Grid item xs={12}>
         <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>

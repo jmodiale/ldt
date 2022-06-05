@@ -1,3 +1,4 @@
+import "./App.css";
 import { useState } from "react";
 import { Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
@@ -29,7 +30,7 @@ export default function Dashboard() {
   };
 
   const handleClick = () => {
-      
+
   };
 
   return (
@@ -40,29 +41,40 @@ export default function Dashboard() {
           value={entry}
           onChange={(e) => setEntry(e.target.value)}
           placeholder="Search by name, event or race"
+          size="30"
         />
       </form>
+      <br />
       <form>
+        <label style={{ fontSize: "14px" }}>
+          Enter organiser Id to view total ticket sales:{" "}
+        </label>
         <input
           type="search"
           value={organiser}
           onChange={(e) => setOrganiser(e.target.value)}
-          placeholder="Enter organiser Id"
+          size="20"
         />
       </form>
       <br />
       <Grid item xs={12}>
         <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
           <Table size="small">
-            <TableHead>
+            <TableHead className="header">
               <TableRow>
-                <TableCell fontWeight="bold">Booking Date</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Email Address</TableCell>
-                <TableCell>Event Title</TableCell>
-                <TableCell>Race Title</TableCell>
-                <TableCell>Status</TableCell>
-                <TableCell align="right">Ticket Price</TableCell>
+                <TableCell sx={{ fontWeight: "bolder" }}>
+                  Booking Date
+                </TableCell>
+                <TableCell sx={{ fontWeight: "bolder" }}>Name</TableCell>
+                <TableCell sx={{ fontWeight: "bolder" }}>
+                  Email Address
+                </TableCell>
+                <TableCell sx={{ fontWeight: "bolder" }}>Event Title</TableCell>
+                <TableCell sx={{ fontWeight: "bolder" }}>Race Title</TableCell>
+                <TableCell sx={{ fontWeight: "bolder" }}>Status</TableCell>
+                <TableCell sx={{ fontWeight: "bolder" }}>
+                  Ticket Price
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

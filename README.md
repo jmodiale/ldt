@@ -4,13 +4,13 @@
 
 Before an event occurs, an event organiser needs to have a list of all the participants who are taking part in their event and which race they are running in . This list is called a ‘race startlist’.
 
-When someone makes a booking through our site, we need to collect all their relevant information and display it to our event organisers in a clear, easy to read format. 
+When someone makes a booking through our site, we need to collect all their relevant information and display it to our event organisers in a clear, easy to read format.
 
 ### The data
 
 We have created an API that returns an array of json objects that replicates our booking data. Each object holds key information about the booking, some or all of which may be useful information to include on an organiser’s race startlist
 
-The data can be found [here](https://ldt-tech-test.herokuapp.com/api/startlistentries). To use the data provided in your application, you may either: 
+The data can be found [here](https://ldt-tech-test.herokuapp.com/api/startlistentries). To use the data provided in your application, you may either:
 
 1. Query the endpoint provided (i.e. a simple GET request)
 2. Copy and paste the data into a file (within your application)
@@ -32,6 +32,7 @@ Some questions that might be helpful to consider:
 - How much time will your proposed features likely take you to implement? Do you have enough time? If not, is there a simpler way to give a user 80% of the experience?
 
 ### Run Application
+
 ```
 - Clone the repo - https://github.com/jmodiale/ldt.git
 - cd dashboard
@@ -40,21 +41,15 @@ Some questions that might be helpful to consider:
 ```
 
 ### Approach
-In an effort to follow the client specifications, I opted to use React as it would require less code and overall performs better. 
 
-Due to the nature of the data presented, I opted to display results in a tabular format with sort of resembles a dashboard. Rather than just create a filter for the organisers alone using a search function, I also added filters for name and event as a bonus feature - as this enhances the user experience, as they able to search for other details. The organiser is also able to see their total ticket sales, but this only considers the  CONFIRMED status (pending and refunded are excluded). 
+In an effort to follow the client specifications, I opted to use React as it would require less code and overall performs better.
+
+Due to the nature of the data presented, I opted to display results in a tabular format which sort of resembles a dashboard. Rather than just create a filter for the organisers alone using a search function, I also added filters for name and event as a bonus feature - this enhances the user experience, as they able to search for other details. The organiser is also able to see total ticket sales upon entering their ID, but this only considers the CONFIRMED status (pending and refunded are excluded).
 
 ### Improvement
+
 - Widen the search keywords to capture all data on the page
-- Split my component into two (one to handle user inputs and another for dashboard) 
+- Split my component into two (one to handle user inputs and another for dashboard)
 - Create a sign in option for organisers with authentication
 - Improve styling (at the moment it is basic)
 - My code has zero tests, this would be nice to have
-
-
-
-
-
-
-
-

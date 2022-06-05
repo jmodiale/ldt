@@ -69,7 +69,7 @@ export default function Dashboard() {
       <br />
       <form onSubmit={handleEnter}>
         <label style={{ fontSize: "14px" }}>
-          Enter organiser Id to view total ticket sales:{" "}
+          Enter organiser ID to see total ticket sales:{" "}
         </label>
         <input
           type="search"
@@ -78,7 +78,7 @@ export default function Dashboard() {
           size="20"
         />
       </form>
-      <Typography sx={{ fontSize: "14px" }}>
+      <Typography sx={{ fontSize: "14px"}}>
         Total ticket sales is: {`£ ${sales}`}
       </Typography>
       <br />

@@ -67,21 +67,22 @@ export default function Dashboard() {
         />
       </form>
       <br />
-      <form onSubmit={handleEnter}>
-        <label style={{ fontSize: "14px" }}>
-          Enter organiser ID to see total ticket sales:{" "}
-        </label>
-        <input
-          type="search"
-          value={organiser}
-          onChange={(e) => setOrganiser(e.target.value)}
-          size="20"
-        />
-      </form>
-      <Typography sx={{ fontSize: "14px"}}>
-        Total ticket sales is: {`£ ${sales}`}
-      </Typography>
-      <br />
+        <form onSubmit={handleEnter}>
+          <label style={{ fontSize: "14px" }}>
+            Enter organiser ID to see total ticket sales:{" "}
+          </label>
+          <input
+            type="search"
+            value={organiser}
+            onChange={(e) => setOrganiser(e.target.value)}
+            size="20"
+          />
+        </form>
+        <br />
+        <Typography sx={{ fontSize: "18px" }}>
+          Total ticket sales is: {`£ ${sales}`}
+        </Typography>
+        <br />
       <Grid item xs={12}>
         <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
           <Table size="small">

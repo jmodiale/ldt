@@ -44,7 +44,7 @@ Some questions that might be helpful to consider:
 
 In an effort to follow the client specifications, I opted to use React as it would require less code and overall performs better.
 
-Due to the nature of the data presented, I opted to display results in a tabular format which sort of resembles a dashboard. Rather than just create a filter for the organisers alone using a search function, I also added filters for name and event as a bonus feature - this enhances the user experience, as they able to search for other details. The organiser is also able to see total ticket sales upon entering their ID, but this only considers the CONFIRMED status (pending and refunded are excluded).
+Due to the nature of the data presented, I opted to display results in a tabular format using material ui which sort of resembles a dashboard. Rather than just create a filter for the organisers alone using a search function, I also added filters for name and event as a bonus feature - this enhances the user experience, as they able to search for other details. The organiser is also able to see total ticket sales upon entering their ID, but this only considers the CONFIRMED status (pending and refunded are excluded).
 
 ### Improvement
 

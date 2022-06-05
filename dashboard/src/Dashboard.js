@@ -14,11 +14,11 @@ export default function Dashboard() {
   const [data, setData] = useState(items);
   const [entry, setEntry] = useState("");
   const [organiser, setOrganiser] = useState("");
-  const [sales, setSales] = useState("")
+  const [sales, setSales] = useState("");
 
   const filteredItems = data.filter((item) => {
     return (
-      item.organiserTitle.toLowerCase().includes(entry.toLowerCase())||
+      item.organiserTitle.toLowerCase().includes(entry.toLowerCase()) ||
       item.firstName.toLowerCase().includes(entry.toLowerCase()) ||
       item.lastName.toLowerCase().includes(entry.toLowerCase()) ||
       item.eventTitle.toLowerCase().includes(entry.toLowerCase()) ||
@@ -34,7 +34,8 @@ export default function Dashboard() {
   const handleEnter = () => {
     const result = data.reduce((a, curr) => {
       let found = a.find(
-        (elem) => elem.organiserId === curr.organiserId && elem.status === "CONFIRMED"
+        (elem) =>
+          elem.organiserId === curr.organiserId && elem.status === "CONFIRMED"
       );
       if (found) {
         found.ticketPrice.value += curr.ticketPrice.value;
@@ -45,14 +46,16 @@ export default function Dashboard() {
     }, []);
 
     result.map((item) => {
-      if ((item.organiserId === parseInt(organiser)) && (item.status === "CONFIRMED")) {
-        setSales(item.ticketPrice.value)
+      if (
+        item.organiserId === parseInt(organiser) &&
+        item.status === "CONFIRMED"
+      ) {
+        setSales(item.ticketPrice.value);
       } else {
         return 0;
       }
       return sales;
     });
-
   };
 
   return (
@@ -78,9 +81,11 @@ export default function Dashboard() {
           size="20"
         />
       </form>
-      <Typography sx={{ fontSize: "18px" }}>
-        <p>Total ticket sales is: {`£ ${sales}`}</p>
-      </Typography>
+      {sales && (
+        <Typography sx={{ fontSize: "18px" }}>
+          <p>Total ticket sales is: {`£ ${sales}`}</p>
+        </Typography>
+      )}
       <br />
       <Grid item xs={12}>
         <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>

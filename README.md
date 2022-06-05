@@ -49,6 +49,7 @@ Due to the nature of the data presented, I opted to display results in a tabular
 ### Improvement
 If I had more time, I would the following changes to the project:
 - Widen the search keywords to capture all data on the page
+- Persist the total ticket sales data on page
 - Split my component into two (one to handle user inputs and another for dashboard)
 - Create a sign in option for organisers with authentication
 - Improve styling (at the moment it is basic)

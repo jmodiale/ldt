@@ -9,6 +9,7 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { items } from "./data";
+import Ticket from "./Ticket";
 
 export default function Dashboard() {
   const [entry, setEntry] = useState("");
@@ -17,6 +18,7 @@ export default function Dashboard() {
 
   const filteredItems = data.filter((item) => {
     return (
+      item.organiserTitle.toLowerCase().includes(entry.toLowerCase())||
       item.firstName.toLowerCase().includes(entry.toLowerCase()) ||
       item.lastName.toLowerCase().includes(entry.toLowerCase()) ||
       item.eventTitle.toLowerCase().includes(entry.toLowerCase()) ||
@@ -30,7 +32,32 @@ export default function Dashboard() {
   };
 
   const handleEnter = () => {
-    
+    let sum = 0;
+
+    const result = items.reduce((a, curr) => {
+      let found = a.find(
+        (elem) => elem.organiserId === curr.organiserId && elem.status === "CONFIRMED"
+      );
+      if (found) {
+        found.ticketPrice.value += curr.ticketPrice.value;
+      } else {
+        a.push(curr);
+      }
+      return a;
+    }, []);
+
+    result.map((item) => {
+      if ((item.organiserId === parseInt(organiser)) && (item.status === "CONFIRMED")) {
+        sum = item.ticketPrice.value;
+        console.log(sum);
+      } else {
+        return 0;
+      }
+      return sum;
+    });
+
+    return <Ticket value={sum} />;
+
   };
 
   return (
@@ -70,6 +97,7 @@ export default function Dashboard() {
                   Email Address
                 </TableCell>
                 <TableCell sx={{ fontWeight: "bolder" }}>Event Title</TableCell>
+                <TableCell sx={{ fontWeight: "bolder" }}>Organiser</TableCell>
                 <TableCell sx={{ fontWeight: "bolder" }}>Race Title</TableCell>
                 <TableCell sx={{ fontWeight: "bolder" }}>Status</TableCell>
                 <TableCell sx={{ fontWeight: "bolder" }}>
@@ -96,6 +124,7 @@ export default function Dashboard() {
                         </TableCell>
                         <TableCell>{item.emailAddress}</TableCell>
                         <TableCell>{item.eventTitle}</TableCell>
+                        <TableCell>{item.organiserTitle}</TableCell>
                         <TableCell>{item.raceTitle}</TableCell>
                         <TableCell>{item.status}</TableCell>
                         <TableCell align="right">

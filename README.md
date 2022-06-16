@@ -51,4 +51,3 @@ If I had more time, I would make the following changes to the project:
 - Widen the search keywords to capture all data on the page
 - Create a sign in option for organisers with authentication
 - Improve styling (at the moment it is basic)
-- My code has zero tests, this would be nice to have
